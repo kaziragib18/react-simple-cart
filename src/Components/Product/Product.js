@@ -3,7 +3,7 @@ import React from 'react';
 
 const Product = (props) => {
       // distructing product data 
-      const { name, img, star, starCount, category, price, stock, seller} = props.product||{}
+      const { name, img, star, starCount, category, price, stock, seller} = props.product||{};
 
       console.log(props.product);
       
@@ -21,7 +21,9 @@ const Product = (props) => {
                                           <h5 class="card-title fs-6 text-dark mt-3">Catagory: {category}</h5>
                                           <h5 class="card-title fs-6 text-dark mt-3">Only {stock} product available.</h5>
                                           <p class="card-text fw-bold mt-3">Price: $<span className="text-danger">{price}</span></p>
-                                          <button className="btn btn-danger">Add to cart</button>
+                                          <button 
+                                          onClick ={() => props.handleAddProduct(props.product)}
+                                          className="btn btn-danger">Add to cart</button>
                                          
                                     </div>
                               </div>

@@ -11,8 +11,11 @@ const Shop = () => {
       //declare event handler where state is  
 
       const handleAddProduct =(product) => {
-            
-            const newCart = [...cart.product]
+            //set products one by one in the cart
+            const newCart = [...cart , product]
+            setCart(newCart);
+
+            // console.log(product);
 
       }
 
@@ -30,8 +33,10 @@ const Shop = () => {
 
                               <div className="row">
                                     {
-                                          products.map(product => <Product product={product}>
+                                          products.map(product => <Product product={product}
+                                          handleAddProduct={handleAddProduct}
 
+                                          >
                                           </Product>)
                                     }
 
@@ -40,7 +45,11 @@ const Shop = () => {
                         </div>
                         <div className="col-md-3">
                               {/* cart calculation  */}
-                              <Cart></Cart>
+                              <Cart
+                              cart={cart}
+                              >
+
+                              </Cart>
 
                         </div>
                   </div>
